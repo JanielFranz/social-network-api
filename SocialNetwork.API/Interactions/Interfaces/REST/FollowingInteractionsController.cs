@@ -10,7 +10,7 @@ using SocialNetwork.API.Interactions.Interfaces.REST.Transform;
 namespace SocialNetwork.API.Interactions.Interfaces.REST;
 
 [ApiController]
-[Route("/api/v1/[controller)")]
+[Route("api/v1/[controller]")]
 [Produces(MediaTypeNames.Application.Json)]
 public class FollowingInteractionsController(
     IFollowingInteractionCommandService followingInteractionCommandService,
@@ -48,7 +48,7 @@ public class FollowingInteractionsController(
     [HttpGet("follower/{follower}")]
     public async Task<ActionResult> GetAllFollowingInteractionByFollower(string follower)
     {
-        var getAllFollowingInteractionByFollowerQuery = new GetAllFollowingInteractionByFollowedQuery(follower);
+        var getAllFollowingInteractionByFollowerQuery = new GetAllFollowingInteractionByFollowerQuery(follower);
         var result = await followingInteractionQueryService.Handle(getAllFollowingInteractionByFollowerQuery);
         var resource = result.Select(FollowingInteractionResourceFromEntityAssembler.ToResourceFromEntity);
         return Ok(resource);

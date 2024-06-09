@@ -4,6 +4,7 @@ namespace SocialNetwork.API.Shared.Infrastructure.Interfaces.ASP.Configuration.E
 
 public static partial class StringExtensions
 {
+    // Extensiones para manipulación de cadenas de texto.
     public static string ToKebabCase(this string text)
     {
         if (string.IsNullOrEmpty(text))

@@ -3,8 +3,9 @@ using SocialNetwork.API.Shared.Infrastructure.Interfaces.ASP.Configuration.Exten
 
 namespace SocialNetwork.API.Shared.Infrastructure.Interfaces.ASP.Configuration;
 
-public class KebabCaseRouteNamingConvention
+public class KebabCaseRouteNamingConvention : IControllerModelConvention
 {
+    // Reemplazar el [controller]
     private static AttributeRouteModel? ReplaceControllerTemplate(SelectorModel selector, string name)
     {
         return selector.AttributeRouteModel != null 
