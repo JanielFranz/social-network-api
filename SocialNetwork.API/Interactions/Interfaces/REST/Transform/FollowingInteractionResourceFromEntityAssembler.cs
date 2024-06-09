@@ -1,7 +1,7 @@
 using SocialNetwork.API.Interactions.Domain.Model.Aggregates;
-using SocialNetwork.API.Interactions.Interfaces.Resources;
+using SocialNetwork.API.Interactions.Interfaces.REST.Resources;
 
-namespace SocialNetwork.API.Interactions.Interfaces.Transform;
+namespace SocialNetwork.API.Interactions.Interfaces.REST.Transform;
 
 public static class FollowingInteractionResourceFromEntityAssembler
 {
