@@ -6,25 +6,21 @@ using SocialNetwork.API.Shared.Domain.Repositories;
 
 namespace SocialNetwork.API.Interactions.Application.Internal.CommandServices;
 
-public class FollowingInteractionCommandService : IFollowingInteractionCommandService
+public class FollowingInteractionCommandService(
+    IFollowingInteractionRepository followingInteractionRepository,
+    IUnitOfWork unitOfWork)
+    : IFollowingInteractionCommandService
 {
-    private readonly IFollowingInteractionRepository _followingInteractionRepository;
-    private readonly IUnitOfWork _unitOfWork;
-    public FollowingInteractionCommandService(IFollowingInteractionRepository followingInteractionRepository, IUnitOfWork unitOfWork)
-    {
-        _followingInteractionRepository = followingInteractionRepository;
-        _unitOfWork = unitOfWork;
-    }
-
+    // Creando el método Handle para la creación de una interacción de seguimiento
     public async Task<FollowingInteraction> Handle(CreateFollowingInteractionCommand command)
     {
         var followingInteraction =
-            await _followingInteractionRepository.FindByFollowerAndFollowedAsync(command.Follower, command.Followed);
+            await followingInteractionRepository.FindByFollowerAndFollowedAsync(command.Follower, command.Followed);
         if (followingInteraction != null)
             throw new Exception("Following interaction already exists");
         followingInteraction = new FollowingInteraction(command);
-        await _followingInteractionRepository.AddAsync(followingInteraction);
-        await _unitOfWork.CompleteAsync();
+        await followingInteractionRepository.AddAsync(followingInteraction);
+        await unitOfWork.CompleteAsync();
         return followingInteraction;
 
     }
