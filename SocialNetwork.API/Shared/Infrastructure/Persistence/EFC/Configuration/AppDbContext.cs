@@ -24,8 +24,8 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
         builder.Entity<FollowingInteraction>().ToTable("FollowingInteractions");
         builder.Entity<FollowingInteraction>().HasKey(f => f.Id);
         builder.Entity<FollowingInteraction>().Property(f => f.Id).IsRequired().ValueGeneratedOnAdd();
-        builder.Entity<FollowingInteraction>().Property(f => f.From).IsRequired();
-        builder.Entity<FollowingInteraction>().Property(f => f.To).IsRequired();
+        builder.Entity<FollowingInteraction>().Property(f => f.Follower).IsRequired();
+        builder.Entity<FollowingInteraction>().Property(f => f.Followed).IsRequired();
         
         
         // Aplicando snake case convention

@@ -5,18 +5,18 @@ namespace SocialNetwork.API.Interactions.Domain.Model.Aggregates;
 public class FollowingInteraction
 {
     public int Id { get; private set; }
-    public string From { get; private set; }
-    public string To { get; private set; }
+    public string Follower { get; private set; }
+    public string Followed { get; private set; }
 
     protected FollowingInteraction()
     {
-        this.From = string.Empty;
-        this.To = string.Empty;
+        this.Follower = string.Empty;
+        this.Followed = string.Empty;
     }
 
     public FollowingInteraction(CreateFollowingInteractionCommand command)
     {
-        this.From = command.From;
-        this.To = command.To;
+        this.Follower = command.Follower;
+        this.Followed = command.Followed;
     }
 }
