@@ -1,5 +1,5 @@
-using SocialNetwork.API.Interactions.Domain.Model.Aggregates;
 using SocialNetwork.API.Interactions.Domain.Model.Queries;
+using SocialNetwork.API.Interactions.Domain.Model.ValueObjects;
 using SocialNetwork.API.Interactions.Domain.Repositories;
 using SocialNetwork.API.Interactions.Domain.Services;
 using SocialNetwork.API.Interactions.Infrastructure.Persistence.EFC.Repositories;

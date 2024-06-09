@@ -1,4 +1,4 @@
-using SocialNetwork.API.Interactions.Domain.Model.Aggregates;
+using SocialNetwork.API.Interactions.Domain.Model.ValueObjects;
 using SocialNetwork.API.Interactions.Interfaces.REST.Resources;
 
 namespace SocialNetwork.API.Interactions.Interfaces.REST.Transform;

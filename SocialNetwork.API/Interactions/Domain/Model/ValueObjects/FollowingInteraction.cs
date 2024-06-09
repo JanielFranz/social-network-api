@@ -1,8 +1,8 @@
 using SocialNetwork.API.Interactions.Domain.Model.Commands;
 
-namespace SocialNetwork.API.Interactions.Domain.Model.Aggregates;
+namespace SocialNetwork.API.Interactions.Domain.Model.ValueObjects;
 
-public class FollowingInteraction
+public record FollowingInteraction
 {
     public int Id { get; private set; }
     public string Follower { get; private set; }

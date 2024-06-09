@@ -19,8 +19,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Interactions\Domain\Model\Entities\" />
-      <Folder Include="Interactions\Domain\Model\ValueObjects\" />
+      <Folder Include="Interactions\Domain\Model\Aggregates\" />
     </ItemGroup>
 
 </Project>
