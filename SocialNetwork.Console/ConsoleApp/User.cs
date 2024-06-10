@@ -89,11 +89,15 @@ public class User : IUserBehavior
                  foreach ( JObject item in r2)
                  {
                      string message = (string)item["message"];
-                     Console.WriteLine($"\" {message}\" @{followed}");
+                     DateTime createdDate = DateTime.Parse(item["createdDate"].ToString());
+                     Console.WriteLine($"\" {message}\" @{followed} @ {createdDate.TimeOfDay}");
                  }
                             
             }
-  
+            // Recibierndo createdDate
+            // var responseContent = await response.Content.ReadAsStringAsync();
+            // dynamic status = JsonConvert.DeserializeObject(responseContent);
+            // DateTime createdDate = DateTime.Parse(status.createdDate.ToString());
 
         
         }
