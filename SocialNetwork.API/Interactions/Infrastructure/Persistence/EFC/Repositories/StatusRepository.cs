@@ -12,4 +12,12 @@ public class StatusRepository(AppDbContext context) : BaseRepository<Status>(con
     {
         return await Context.Set<Status>().Where(s => s.User == user).ToListAsync();
     }
+
+
+
+
+    public async Task<Status> FindByUserAndMessageAsync(string user, string message)
+    {
+        return await Context.Set<Status>().FirstOrDefaultAsync(f => f.User == user && f.Message == message);
+    }
 }

@@ -26,8 +26,13 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
         builder.Entity<FollowingInteraction>().Property(f => f.Id).IsRequired().ValueGeneratedOnAdd();
         builder.Entity<FollowingInteraction>().Property(f => f.Follower).IsRequired();
         builder.Entity<FollowingInteraction>().Property(f => f.Followed).IsRequired();
-        
-        
+
+        //Status
+        builder.Entity<Status>().ToTable("UserStatus");
+        builder.Entity<Status>().HasKey(s => s.StatusIdentifier);
+        builder.Entity<Status>().Property(s => s.StatusIdentifier).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Status>().Property(s => s.User).IsRequired();
+        builder.Entity<Status>().Property(s => s.Message).IsRequired();
         // Aplicando snake case convention
         builder.UseSnakeCaseWithPluralizedTableNamingConvention();
     }

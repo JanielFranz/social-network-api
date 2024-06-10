@@ -79,6 +79,11 @@ builder.Services.AddScoped<IFollowingInteractionRepository, FollowingInteraction
 builder.Services.AddScoped<IFollowingInteractionCommandService, FollowingInteractionCommandService>();
 builder.Services.AddScoped<IFollowingInteractionQueryService, FollowingInteractionQueryService>();
 
+// Interactions Bounded Context Configuracion de Inyeccion
+builder.Services.AddScoped<IStatusRepository, StatusRepository>();
+builder.Services.AddScoped<IStatusCommandService, StatusCommandService>();
+builder.Services.AddScoped<IStatusQueryService, StatusQueryService>();
+
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
