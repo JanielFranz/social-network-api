@@ -81,7 +81,7 @@ public class User : IUserBehavior
                  var res2 = response2.Content.ReadAsStringAsync().Result;
                  dynamic r2= JArray.Parse(res2);
                  
-                 foreach (JObject item in r2)
+                 foreach ( JObject item in r2)
                  {
                      string message = (string)item["message"];
                      Console.WriteLine($"\" {message}\" @{followed}");

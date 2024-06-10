@@ -11,7 +11,7 @@ public record Status
     public string Message { get; private set; }
     public string User { get; private set; }
     
-    [Column("CreatedAt")] public DateTimeOffset? CreatedDate { get; set; }
+    [Column("CreatedAt")] public DateTimeOffset CreatedDate { get; set; }
 
     protected Status()
     {
@@ -23,5 +23,6 @@ public record Status
     {
         Message = command.Message;
         User = command.User;
+        CreatedDate = DateTimeOffset.Now;
     }
 }

@@ -33,6 +33,7 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
         builder.Entity<Status>().Property(s => s.StatusIdentifier).IsRequired().ValueGeneratedOnAdd();
         builder.Entity<Status>().Property(s => s.User).IsRequired();
         builder.Entity<Status>().Property(s => s.Message).IsRequired();
+        builder.Entity<Status>().Property(s => s.CreatedDate).ValueGeneratedOnAdd();
         // Aplicando snake case convention
         builder.UseSnakeCaseWithPluralizedTableNamingConvention();
     }
