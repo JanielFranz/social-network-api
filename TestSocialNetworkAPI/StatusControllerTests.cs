@@ -8,6 +8,7 @@ using SocialNetwork.API.Interactions.Domain.Repositories;
 using SocialNetwork.API.Interactions.Domain.Services;
 using SocialNetwork.API.Interactions.Interfaces.REST;
 using SocialNetwork.API.Interactions.Interfaces.REST.Resources;
+using SocialNetwork.API.Interactions.Interfaces.REST.Transform;
 
 namespace TestSocialNetworkAPI;
 
@@ -52,5 +53,36 @@ public class StatusControllerTests
         var statuses = okResult.Value as IEnumerable<StatusResource>;
         Assert.AreEqual(3, statuses.Count());
     }
+    
+    
+    // Testeando Create  Status
+    [TestMethod]
+    public async Task Create_Status_ReturnsCreated()
+    {
+        var createStatusResource = _fixture.Create<CreateStatusResource>();
+        var status = _fixture.Create<Status>();
+        var createStatusCommand = CreateStatusCommandFromResourceAssembler.ToCommandFromResource(createStatusResource);
+
+        var mockStatusCommandService = new Mock<IStatusCommandService>();
+        var mockStatusQueryService = new Mock<IStatusQueryService>();
+        mockStatusCommandService.Setup(service => service.Handle(createStatusCommand)).ReturnsAsync(status);
+
+        _controller = new StatusController(mockStatusCommandService.Object, mockStatusQueryService.Object);
+        // Metodo CreateStatus
+        var result = await _controller.CreateStatus(createStatusResource);
+  
+        var createdAtActionResult = result as CreatedAtActionResult;
+        Assert.IsNotNull(createdAtActionResult);
+        Assert.AreEqual(201, createdAtActionResult.StatusCode);
+
+        var returnedStatus = createdAtActionResult.Value as StatusResource;
+        Assert.IsNotNull(returnedStatus);
+        Assert.AreEqual(status.User, returnedStatus.user);
+        Assert.AreEqual(status.Message, returnedStatus.message);
+    }
+    
+    
+    
+    
 }
 
