@@ -25,7 +25,12 @@ public class User : IUserBehavior
 
             if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine($"'{usuario}' posted -> {mensaje}'.");            // Falta agregar hora de envio
+                // Recibierndo createdDate
+                var responseContent = await response.Content.ReadAsStringAsync();
+                dynamic status = JsonConvert.DeserializeObject(responseContent);
+                DateTime createdDate = DateTime.Parse(status.createdDate.ToString());
+                // Mostrar en consola
+                Console.WriteLine($"'{usuario}' posted -> {mensaje}' @ {createdDate.TimeOfDay}.");            // Falta agregar hora de envio
             }
             else
             {

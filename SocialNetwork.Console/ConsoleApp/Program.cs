@@ -118,9 +118,6 @@ class program
                 userFollower.Dashboard(follower).Wait();
 
             }
-            
-            
-            // ... resto del código ...
         }
     }
 }
