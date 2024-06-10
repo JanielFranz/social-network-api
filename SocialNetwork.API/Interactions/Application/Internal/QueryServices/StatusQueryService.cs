@@ -11,4 +11,9 @@ public class StatusQueryService(IStatusRepository statusRepository) : IStatusQue
     {
         return await statusRepository.FindAllByUserAsync(query.user);
     }
+
+    public async Task<Status> Handle(GetStatusByUserAndMessageQuery query)
+    {
+        return await statusRepository.FindByUserAndMessageAsync(query.user, query.Message);
+    }
 }

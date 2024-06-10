@@ -21,16 +21,26 @@ public class StatusController(IStatusCommandService statusCommandService, IStatu
     {
         var createStatusCommand = CreateStatusCommandFromResourceAssembler.ToCommandFromResource(resource);
         var result = await statusCommandService.Handle(createStatusCommand);
-        return CreatedAtAction(nameof(GetAllStatusByUser), new { id = result.StatusIdentifier },
+        return CreatedAtAction(nameof(GetStatusByUserAndMessage), new { user = result.User, message = result.Message },
             StatusResourceFromEntityAssembler.ToResourceFromEntity(result));
     }
 
-    [HttpGet("{account")]
-    public async Task<ActionResult> GetAllStatusByUser(string account)
+    [HttpGet("{user}")]
+    public async Task<ActionResult> GetAllStatusByUser(string user)
     {
-        var getAllStatusByUserQuery = new GetAllStatusByUserQuery(account);
+        var getAllStatusByUserQuery = new GetAllStatusByUserQuery(user);
         var result = await statusQueryService.Handle(getAllStatusByUserQuery);
         var resources = result.Select(StatusResourceFromEntityAssembler.ToResourceFromEntity);
         return Ok(resources);
+    }
+    
+    [ApiExplorerSettings(IgnoreApi = true)]
+    [HttpGet("{user}/{message}" )]
+    public async Task<ActionResult> GetStatusByUserAndMessage(string user, string message)
+    {
+        var getStatusByUserAndMessageQuery = new GetStatusByUserAndMessageQuery(user, message);
+        var result = await statusQueryService.Handle(getStatusByUserAndMessageQuery);
+        var resource = StatusResourceFromEntityAssembler.ToResourceFromEntity(result);
+        return Ok(resource);
     }
 }

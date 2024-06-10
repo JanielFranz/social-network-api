@@ -6,4 +6,5 @@ namespace SocialNetwork.API.Interactions.Domain.Services;
 public interface IStatusQueryService
 {
     Task<IEnumerable<Status>> Handle(GetAllStatusByUserQuery query);
+    Task<Status> Handle(GetStatusByUserAndMessageQuery query);
 }

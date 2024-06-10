@@ -5,7 +5,7 @@ namespace SocialNetwork.API.Interactions.Domain.Model.Entities;
 
 public record Status
 {
-    public NetworkStatusIdentifier StatusIdentifier { get; private set; }
+    public int StatusIdentifier { get; private set; }
     
     // Los que envia en el request
     public string Message { get; private set; }
