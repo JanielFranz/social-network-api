@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNetwork.API", "Social
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "SocialNetwork.Console\ConsoleApp\ConsoleApp.csproj", "{D3D1EFD4-40BF-498B-BBE4-5932E36FCD1C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSocialNetworkAPI", "TestSocialNetworkAPI\TestSocialNetworkAPI.csproj", "{A7F67A01-3BC2-4588-959E-68CC861E074A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{D3D1EFD4-40BF-498B-BBE4-5932E36FCD1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3D1EFD4-40BF-498B-BBE4-5932E36FCD1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3D1EFD4-40BF-498B-BBE4-5932E36FCD1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7F67A01-3BC2-4588-959E-68CC861E074A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7F67A01-3BC2-4588-959E-68CC861E074A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7F67A01-3BC2-4588-959E-68CC861E074A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7F67A01-3BC2-4588-959E-68CC861E074A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
