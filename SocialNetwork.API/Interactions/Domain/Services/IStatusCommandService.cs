@@ -3,7 +3,7 @@ using SocialNetwork.API.Interactions.Domain.Model.Entities;
 
 namespace SocialNetwork.API.Interactions.Domain.Services;
 
-public interface IFollowingInteractionCommandService
+public interface IStatusCommandService
 {
-    Task<FollowingInteraction> Handle(CreateFollowingInteractionCommand command);
+    Task<Status> Handle(CreateStatusCommand command);
 }

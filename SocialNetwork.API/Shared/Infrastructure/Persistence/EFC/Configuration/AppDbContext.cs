@@ -1,6 +1,6 @@
 using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
 using Microsoft.EntityFrameworkCore;
-using SocialNetwork.API.Interactions.Domain.Model.ValueObjects;
+using SocialNetwork.API.Interactions.Domain.Model.Entities;
 using SocialNetwork.API.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
 
 namespace SocialNetwork.API.Shared.Infrastructure.Persistence.EFC.Configuration;

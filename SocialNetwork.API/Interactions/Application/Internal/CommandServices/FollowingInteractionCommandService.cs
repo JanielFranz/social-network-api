@@ -1,5 +1,5 @@
 using SocialNetwork.API.Interactions.Domain.Model.Commands;
-using SocialNetwork.API.Interactions.Domain.Model.ValueObjects;
+using SocialNetwork.API.Interactions.Domain.Model.Entities;
 using SocialNetwork.API.Interactions.Domain.Repositories;
 using SocialNetwork.API.Interactions.Domain.Services;
 using SocialNetwork.API.Shared.Domain.Repositories;

@@ -1,6 +1,6 @@
 using SocialNetwork.API.Interactions.Domain.Model.Commands;
 
-namespace SocialNetwork.API.Interactions.Domain.Model.ValueObjects;
+namespace SocialNetwork.API.Interactions.Domain.Model.Entities;
 
 public record FollowingInteraction
 {

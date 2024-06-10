@@ -10,6 +10,7 @@ public record Status
     // Los que envia en el request
     public string Message { get; private set; }
     public string User { get; private set; }
+    
     [Column("CreatedAt")] public DateTimeOffset? CreatedDate { get; set; }
 
     protected Status()
