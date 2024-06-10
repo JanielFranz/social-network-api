@@ -1,5 +1,6 @@
 using System.Text;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace program;
 
@@ -52,8 +53,44 @@ public class User : IUserBehavior
         }
     }
 
-    public async Task Dashboard()
+    public async Task Dashboard(string follower)
     {
-        throw new NotImplementedException();
+        using (var client = new HttpClient())
+        {
+            string url = $"https://localhost:7118/api/v1/following-interactions/follower/{follower}";
+            client.DefaultRequestHeaders.Clear();
+            var response = client.GetAsync(url).Result;
+            var res = response.Content.ReadAsStringAsync().Result;
+            dynamic r = JArray.Parse(res);
+            //Lista para almacenar personas seguidas
+            List<string> followedList = new List<string>();
+           //Guardando las personas a las que ha seguido
+            foreach (JObject item in r)
+            {
+                string followed = (string)item["followed"];
+                followedList.Add(followed);
+            }
+            
+            //Obteniendo status de las personas seguidas
+            //falta agregar fechas
+            foreach (var followed in followedList)
+            {
+                string url2 = $"https://localhost:7118/api/v1/status/{followed}"; 
+                client.DefaultRequestHeaders.Clear();
+                 var response2 = client.GetAsync(url2).Result;
+                 var res2 = response2.Content.ReadAsStringAsync().Result;
+                 dynamic r2= JArray.Parse(res2);
+                 
+                 foreach (JObject item in r2)
+                 {
+                     string message = (string)item["message"];
+                     Console.WriteLine($"\" {message}\" @{followed}");
+                 }
+                            
+            }
+  
+
+        
+        }
     }
 }
