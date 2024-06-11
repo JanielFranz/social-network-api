@@ -1,4 +1,4 @@
-# CatchUp Platform
+# Social Network DS
 ## Summary
 Social Network REST API, console app and test folder. 
 
